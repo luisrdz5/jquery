@@ -1,4 +1,4 @@
 
 $(function() {
-	//alert('ready');
+	var header = document.getElementById('app-header');
 })
