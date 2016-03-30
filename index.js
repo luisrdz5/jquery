@@ -7,11 +7,6 @@ $(function() {
 	})
 	$('#app-body').append(a);
 
-	a.attr({
-		href: 'http://google.com',
-		html: 'Ir a google',
-		innerHTML: 'Ir a google',
-		innerText: 'Ir a google'
-	})
+
 
 })
