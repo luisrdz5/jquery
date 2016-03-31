@@ -2,6 +2,7 @@
 $(function() {
 	var tvshows = $('#app-body').find('.tv-shows')
 	function renderShows(shows){
+		tvshows.find('.loader').remove();
 		shows.forEach(function(show){
 			var article=template 
 				.replace(':name:',show.name)
@@ -17,15 +18,16 @@ $(function() {
 	*	Submit search 
 	*/
 
-	$('app-body')
+	$('#app-body')
 		.find('form')
 		.submit(function (ev){
 			ev.preventDefault();
 			var busqueda = $(this)
 				.find('input[type="text"]')
 				.val();
-			$tvShowsContainer.find('.tv-show').remove()
-			$('<div class="loader">').appendTo($tvShowsContainer)
+			tvshows.find('.tv-show').remove()
+			var $loader=$('<div class="loader">');
+			$loader.appendTo(tvshows);
 			$.ajax({
 				url: 'http://api.tvmaze.com/search/shows',
 				data: { q: busqueda },
